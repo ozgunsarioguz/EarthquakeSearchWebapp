@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title> Make Earthquake Search </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                <h1 class = "text-center"> Earthquake Records Search </h1>
+                    <br>
+                    <p class = "text-left"> Query to display recorded earthquakes in a country within the last number of days.
+                        Please type in the country name and past number of days until today (max. possible period: 30 days): </p>
+                <div class = "card-body">
+                    <form action="/response" method="post">
+                        <p>Country: <input type="text" name="country" /></p>
+                        <p>Days: <input type="number" name="days" th:max="30" /></p>
+                        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+                    </form>
+                
+                </div>
+
+            </div>
+
+        </div>
+    
+    </div>
+</body>
+
+</html>

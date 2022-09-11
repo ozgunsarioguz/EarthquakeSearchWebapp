@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title> Search and Display Earthquakes </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1 class = "text-center"> Earthquake Records</h1>
+        </div>
+        <div th:if="${#lists.isEmpty(data)}">
+            <p class = "text-center"> No earthquakes were recorded in </p>
+            <p class = "text-center" th:text="${country}">country</p>
+            <p class = "text-center"> within the last </p>
+            <p class = "text-center" th:text="${days}">days</p>
+            <p class = "text-center"> number of days. </p>
+
+
+        </div>
+                 
+        <div  th:if="!${#lists.isEmpty(data)}">
+
+            <table class="table table-striped">
+
+                <thead class = "table-dark">
+                    <tr>
+                        <th> Place </th>
+                        <th> Country </th>
+                        <th> Magnitude </th>
+                        <th> Date </th>
+                        <th> Time </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="earthquake: ${data}">
+                        <td th:text = "${earthquake.place}"> </td>
+                        <td th:text = "${earthquake.country}"> </td>
+                        <td th:text = "${earthquake.magnitude}"> </td>
+                        <td th:text = "${earthquake.date}"> </td>
+                        <td th:text = "${earthquake.time}"> </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
